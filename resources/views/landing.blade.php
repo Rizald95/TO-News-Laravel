@@ -10,11 +10,22 @@
     <!-- Header -->
     <header class="bg-black text-white px-6 py-3 flex justify-between items-center">
         <h1 class="text-xl font-bold">TO.<span class="text-orange-500">NEWS</span></h1>
-        <nav class="flex space-x-6 text-xs font-medium">
-            <a href="#" class="hover:underline">NEWS</a>
-            <a href="#" class="hover:underline">WATCH</a>
-            <a href="#" class="hover:underline">LISTEN</a>
-            <a href="#" class="hover:underline">LIVE TV</a>
+
+        <!-- Hamburger button (mobile) -->
+        <button id="menu-toggle" class="block md:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <!-- Navigation menu -->
+        <nav id="menu" class="hidden md:flex space-x-6 text-xs font-medium absolute top-full left-0 w-full bg-black md:static md:w-auto md:bg-transparent md:flex-row md:space-x-6 md:items-center">
+            <a href="#" class="block px-4 py-2 hover:underline">NEWS</a>
+            <a href="#" class="block px-4 py-2 hover:underline">WATCH</a>
+            <a href="#" class="block px-4 py-2 hover:underline">LISTEN</a>
+            <a href="#" class="block px-4 py-2 hover:underline">LIVE TV</a>
         </nav>
     </header>
 
@@ -91,6 +102,8 @@
     </div>
 </div>
 
+
+
 <!-- Latest News Section -->
 <div class="mb-10">
     <div class="flex justify-between items-center mb-4">
@@ -116,9 +129,37 @@
         @endfor
     </div>
 
+    
+<section class="mt-16 px-4 py-10 bg-gradient-to-r from-zinc-900 to-black rounded-2xl text-white">
+    <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+            LATEST UPDATES ON <br>
+            <span class="text-orange-500">NATIONAL GLOBAL NEWS</span>
+        </h2>
+        <p class="mt-4 text-gray-300 text-sm sm:text-base">
+            DELIVERING REAL-TIME UPDATES AND THE LATEST HEADLINES DAILY.
+        </p>
+
+        <div class="mt-6 flex justify-center">
+            <div class="relative w-full max-w-md">
+                <input
+                    type="text"
+                    placeholder="Find the topic you want now!"
+                    class="w-full py-3 pl-5 pr-12 rounded-lg bg-zinc-800 text-sm text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+                <button class="absolute right-3 top-1/2 -translate-y-1/2 text-orange-500 hover:text-orange-600">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M21 20l-4.35-4.35a8 8 0 1 0-1.41 1.41L20 21zM10 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
     @if(isset($headlines[7]))
     <!-- Large Featured Article -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mt-16">
         <div>
             @if(!empty($headlines[7]['urlToImage']))
                 <img src="{{ $headlines[7]['urlToImage'] }}" alt="{{ $headlines[7]['title'] }}" class="w-full h-56 object-cover rounded">
@@ -135,6 +176,8 @@
     </div>
     @endif
 </div>
+
+
 <footer class="bg-black text-white px-8 md:px-20 py-12">
     <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
         <!-- Logo and Description -->
@@ -203,6 +246,8 @@
         </div>
     </div>
 </footer>
+
+
 
 </body>
 </html>
